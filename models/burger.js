@@ -1,5 +1,5 @@
 // Importing orm.js to create functions that will interact with the db
-const orm = require("./config/orm.js");
+const orm = require("../config/orm.js");
 
 const burger = {
     all: function(cb) {

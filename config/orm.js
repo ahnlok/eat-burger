@@ -1,5 +1,5 @@
 // Importing MySQL Connection
-const connection = require("./config/connection.js");
+const connection = require("../config/connection.js");
 
 // Print Question Mark Function
 function printQuestionMarks(num) {
@@ -87,7 +87,7 @@ let orm = {
             if (err) throw err;
             cb(result);
         });
-    };
+    }
 };
 
 // Export the orm object for the model
