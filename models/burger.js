@@ -1,7 +1,7 @@
 // Importing orm.js to create functions that will interact with the db
-const orm = require("../config/orm.js");
+var orm = require("../config/orm.js");
 
-const burger = {
+var burger = {
     all: function(cb) {
         orm.all("burgers", function(res) {
             cb(res);
@@ -21,8 +21,8 @@ const burger = {
         });
     },
     // Delete
-    delete: function(id, cb) {
-        orm.delete("burgers", id, (res) => {
+    delete: function(condition, cb) {
+        orm.delete("burgers", condition, (res) => {
             cb(res);
         });
     }

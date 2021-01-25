@@ -1,14 +1,14 @@
-const express = require("express");
+var express = require("express");
 
-const router = express.Router();
+var router = express.Router();
 
 // Importing the model (burger.js) to us its database functions
-const burger = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
     burger.all(function(data) {
-        let hbsObject = {
+        var hbsObject = {
             burgers: data
         };
         console.log(hbsObject);
@@ -21,7 +21,7 @@ router.post("/api/burgers", function(req, res) {
     burger.create([
         "name", "eat"
     ], [
-        req.body.name, req.body.create
+        req.body.name, req.body.eat
     ], function(result) {
         res.json({ id: result.insertId });
     });
@@ -29,7 +29,7 @@ router.post("/api/burgers", function(req, res) {
 
 // Put route
 router.put("/api/burgers/:id", function(req, res) {
-    let condition = "id = " + req.params.id;
+    var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
 
@@ -46,9 +46,14 @@ router.put("/api/burgers/:id", function(req, res) {
 
 // Delete route
 router.delete("api/burgers/:id", function(req, res) {
-    let id = req.params.id;
-    burger.delete(id, (result) => {
-        res.json(result);
+    var condition = "id = " + req.params.id;
+
+    burger.delete(condition, (result) => {
+        if(result.affectedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
     });
 });
 
