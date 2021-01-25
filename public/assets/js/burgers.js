@@ -7,8 +7,9 @@ $(function() {
             eat: newEat
         };
 
+        var currentURL = window.location.origin;
         // Send AJAX PUT request
-        $.ajax("/api/burgers/" + id, {
+        $.ajax(currentURL + "/api/burgers/eat/" + id, {
             type: "PUT",
             data: newEatState
         }).then(
@@ -22,31 +23,35 @@ $(function() {
     // Delete Function
     $(".delete").on("click", function(event){
         var id = $(this).data("id")
+        
+        var currentURL = window.location.origin;
         // Send AJAX for DELETE request
-        $.ajax("/api/cats/" + id, {
+        $.ajax(currentURL + "/api/burgers/" + id, {
             type: "DELETE",
 
-        }).then(function() {
-            console.log("Deleted Burger " + id);
-            location.reload();
+        }).then(function () {
+            console.log(`id: ${id} is deleted!`);
+            $(".devoured-burger" + id).remove();
         });
     });
     // Add function
     $(".create-form").on("submit", function(event) {
         event.preventDefault();
 
-        var newBurger = {
-            name: $("#ca").val().trim(),
-            eat: $("[name=eat]:checked").val().trim()
+        if($("#burger-name").val() === "") {
+            console.log("What is the burger name you want to add?");
+        } else {
+            var newBurger = {
+                name: $("#burger-name").val().trim(),
         };
+        
+        var currentURL = window.location.origin;
         // Send AJAX for "POST" request
-        $.ajax("/api/burgers", { 
-            type: "POST",
-            data: newBurger    
-        }).then(function() {
-            console.log("created new burger");
+        $.post(currentURL + "/api/burgers", newBurger) 
+        .then(function (data) {
+            console.log(data);
             location.reload();
-        }
-        )
+        });
+        };
     });
 });
