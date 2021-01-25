@@ -1,13 +1,20 @@
 // Set up MySQL connection.
+require("dotenv").config();
+const e = require("express");
 var mysql = require("mysql");
+var connection;
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "Ahn@lok123",
-  database: "burger_db"
-});
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+  } else {
+    connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "Ahn@lok123",
+    database: "burger_db"
+  });
+}
 
 // Make connection.
 connection.connect(function(err) {

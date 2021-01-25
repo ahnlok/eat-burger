@@ -7,7 +7,7 @@ var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
         var hbsObject = {
             burgers: data
         };
@@ -17,45 +17,37 @@ router.get("/", function(req, res) {
 });
 
 // Post route
-router.post("/api/burgers", function(req, res) {
-    burger.create([
-        "name", "eat"
+router.post("/burgers", function(req, res) {
+    burger.insertOne([
+        "name"
     ], [
-        req.body.name, req.body.eat
-    ], function(result) {
-        res.json({ id: result.insertId });
+        req.body.name
+    ], function() {
+        res.redirect("/");
     });
 });
 
 // Put route
-router.put("/api/burgers/:id", function(req, res) {
+router.put("/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
 
-    burger.update({
-        eat: req.body.eat
-    }, condition, function(result) {
-        if (result.changedRows == 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
+    burger.updateOne({
+        eat: true
+    }, condition, function(data) {
+        res.redirect("/");
     });
 });
 
 // Delete route
-router.delete("api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+// router.deleteOne("/burgers/:id", function(req, res) {
+//     var condition = "id = " + req.params.id;
 
-    burger.delete(condition, (result) => {
-        if(result.affectedRows == 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    });
-});
+//     burger.deleteOne(condition, (result) => {
+//         res.redirect("/");
+//     });
+// });
 
 // Exporting for server.js
 module.exports = router;
