@@ -40,17 +40,18 @@ router.put("/api/burgers/:id", function(req, res) {
 });
 
 // Delete route
-// router.delete("/api/burgers/:id", function(req, res) {
-//     var condition = "id = " + req.params.id;
-//     console.log("condition", condition);
+router.delete("/api/burgers/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
 
-//     burger.deleteOne(condition, function(result) {
-//         if (result.changedRows === 0) {
-//             return res.status(404).end();
-//         }
-//         res.status(202).end();
-//     });
-// });
+    burger.deleteOne(condition, function(result) {
+        if (result.affectedRows === 0) {
+            return res.status(404).end();
+        } else {
+        res.status(202).end();
+        }
+    });
+});
 
 // Exporting for server.js
 module.exports = router;

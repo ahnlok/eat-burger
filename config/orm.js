@@ -81,20 +81,20 @@ var orm = {
         });
     },
     // Delete
-    // deleteOne: function(table, condition, cb) {
-    //     var queryString = "DELETE FROM " + table;
-    //     queryString += " WHERE ";
-    //     queryString += condition;
+    delete: function(table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
 
-    //     console.log(queryString);
+        console.log(queryString);
 
-    //     connection.query(queryString, function(err, result) {
-    //         if (err) {
-    //             throw err;
-    //         }
-    //         cb(result);
-    //     });
-    // }
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
+    }
 };
 
 // Export the orm object for the model
