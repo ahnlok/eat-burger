@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
 
 // Post route
 router.post("/api/burgers", function(req, res) {
-   burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function (result) {
+   burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function () {
        console.log(result);
        res.json({ id: result.insertId });
    });
@@ -40,17 +40,17 @@ router.put("/api/burgers/:id", function(req, res) {
 });
 
 // Delete route
-router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-    console.log("condition", condition);
+// router.delete("/api/burgers/:id", function(req, res) {
+//     var condition = "id = " + req.params.id;
+//     console.log("condition", condition);
 
-    burger.deleteOne(condition, function(result) {
-        if (result.changedRows === 0) {
-            return res.status(404).end();
-        }
-        res.status(202).end();
-    });
-});
+//     burger.deleteOne(condition, function(result) {
+//         if (result.changedRows === 0) {
+//             return res.status(404).end();
+//         }
+//         res.status(202).end();
+//     });
+// });
 
 // Exporting for server.js
 module.exports = router;
