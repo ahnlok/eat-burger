@@ -5,7 +5,7 @@ $(function() {
     
         var newBurger ={
             burger_name: $("#newburger").val().trim(),
-            devoured: 0
+            devoured: $("[name=devoured]:checked").val().trim(),
         };
         
         // Send AJAX for "POST" request
@@ -15,38 +15,40 @@ $(function() {
         }).then(function() {
             console.log("Added New Burger");
             location.reload();
+        });
     });
 
     // Put it in devoured list
     $(".eatburger").on("click", function(event) {
-        event.preventDefault();
 
         var id = $(this).data("id");
-        var devouredState = { 
-            devoured: 1
+        var newDevoured = $(this).data("newdevour");
+            console.log(id);
+        var newDevouredState = { 
+            devoured: newDevoured,
         };
 
         // Send AJAX PUT request
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: devouredState
+            data: newDevouredState
         }).then(function() {
-                console.log("changed eat list to", devouredState);
+                console.log("changed eat list to", newDevoured);
                 // Reload
                 location.reload();
         });
     });
     // Delete Function
-    $(".delete").on("click", function(event){
-        event.preventDefault();
+    // $(".delete").on("click", function(event){
+    //     event.preventDefault();
         
-        var id = $(this).data("id");
-        // Send AJAX for DELETE request
-        $.ajax({
-            type: "DELETE",
-            url: "/api/burgers/" + id
-        }).then(location.reload());
-        });
-    });
+    //     var id = $(this).data("id");
+    //     // Send AJAX for DELETE request
+    //     $.ajax({
+    //         type: "DELETE",
+    //         url: "/api/burgers/" + id
+    //     }).then(location.reload());
+    //     });
+    // });
 
 });
