@@ -4,7 +4,7 @@ $(function() {
         event.preventDefault();
     
         var newBurger ={
-            burger_name: $("#newburger").val().trim(),
+            burger_name: $("#brgr").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim(),
         };
         
@@ -19,7 +19,7 @@ $(function() {
     });
 
     // Put it in devoured list
-    $(".eatburger").on("click", function(event) {
+    $(".change-devour").on("click", function(event) {
 
         var id = $(this).data("id");
         var newDevoured = $(this).data("newdevour");
