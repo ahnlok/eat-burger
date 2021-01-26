@@ -57,10 +57,21 @@
     font-size: 15px;
     letter-spacing: 1.5px;
     font-weight: 400;
+    text-align: center;
   }
   #main-button:hover{
     background-image: none !important;
     background: lightblue !important;
+    color: white;
+  }
+  .change-devour:hover{
+    background-image: none !important;
+    background: lightblue !important;
+    color: white;
+  }
+  .delete-burger:hover{
+    background-image: none !important;
+    background: red !important;
     color: white;
   }
   .container {
