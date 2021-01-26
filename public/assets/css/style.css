@@ -1,27 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Wendy+One&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0 auto;
     text-align: center;
   }
-  
+  .title{
+    font-weight: bold;
+    font-size: 80px;
+    color: black;
+    text-align: center;
+    font-family: 'Bungee Shade', sans-serif;
+  }
+  .card-title{
+    font-weight: bold;
+    font-size: 35px;
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Wendy One', sans-serif;
+  }
+  .tag {
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    font-family: 'Wendy One', sans-serif;
+  }
   #burger-pic {
-    background-image: url("./images/burger.jpg");
-    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
   }
-  
+  body {
+    background: url("/assets/images/table.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
   ul {
     list-style: none;
+
   }
   
   .list-btn {
     position: relative;
     float: right;
   }
-  
+  #main-button {
+    background: #2196f3;
+    display: inline-block;
+    color: #fff;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+  }
+  #main-button:hover{
+    background-image: none !important;
+    background: lightblue !important;
+    color: white;
+  }
   .container {
     justify-content: center;
   }

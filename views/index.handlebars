@@ -1,14 +1,15 @@
 <div class="jumbotron bg-warning ">
     <div class="container">
-        <img src="/images/burger.jpg" alt="burger" id="burger-pic">
-        <h1>Eat Da Burgers!</h1>
+        {{!-- <img src="/assets/images/burger.jpg"" alt="burger" id="burger-pic"> --}}
+        <h1 class="title">Eat Da Burgers!</h1>
     </div>
 </div>
+<body>
 <div class="container">
     <div class="row mb-5 container">
         <div class="col">
             <div class="card">
-                <h2 class="card-title">Burgers that were not devoured!</h2>
+                <h2 class="card-title">Burger List:</h2>
                 <hr>
                 <div class="card-body container">
                     <ul>
@@ -23,7 +24,7 @@
         </div>
         <div class="col">
             <div class="card">
-                <h2 class="card-title">Burgers that are devoured!</h2>
+                <h2 class="card-title">Burgers That You Ate:</h2>
                 <hr>
                 <div class="card-body container">
                     <ul>
@@ -45,27 +46,25 @@
                 <div class="card-body">
                     <form class="create-form">
                         <div class="form-group">
-                            <label for="brgr">Burger Name:</label>
+                            <label for="brgr" class="tag">Burger Name:</label>
                             <input type="text" class="form-control" id="brgr" name="burger_name">
                         </div>
                         <div class="form-group">
-                            <label for="dev">Hungry?</label><br>
+                            <label for="dev" class="tag">Hungry?</label><br>
                             <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-secondary active">
-                                    <input type="radio" name="devoured" value="1" checked> Yes Please!
+                                    <input type="radio" name="devoured" value="1" checked class="tag"> Hell Yea!
                                 </label>
                                 <label class="btn btn-secondary">
-                                    <input type="radio" name="devoured" value="0"> Not today!
+                                    <input type="radio" name="devoured" value="0" class="tag"> No I'm Full!
                                 </label>
                             </div>
                         </div>
-                        <button class="btn btn-outline-primary btn-sm " type="submit">Add Burger</button>
+                        <button class="btn btn-outline-primary btn-md " type="submit" id="main-button">Add Burger</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-  
+</body>
