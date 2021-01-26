@@ -48,6 +48,7 @@
     position: relative;
     float: right;
   }
+
   #main-button {
     background: #2196f3;
     display: inline-block;
@@ -64,6 +65,19 @@
     background: lightblue !important;
     color: white;
   }
+
+  .change-devour, .delete-burger {
+  
+    color: #fff;
+    margin: 2px;
+    padding: 3px;
+    font-size: 7px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-align: center;
+  }
+
   .change-devour:hover{
     background-image: none !important;
     background: lightblue !important;

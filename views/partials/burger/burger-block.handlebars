@@ -1,7 +1,8 @@
 <li class="list-group-item">
     {{burger_name}}
-    <button class="change-devour btn btn-outline-dark btn-sm list-btn" data-id="{{id}}" data-newdevour="{{devour}}">
+    <button class="change-devour btn btn-warning btn-sm list-btn" data-id="{{id}}" data-newdevour="{{devour}}">
         {{#if devoured}}I'm Full!{{else}}Eat{{/if}}
     </button>
-    <button class="delete-burger btn btn-outline-dark btn-sm list-btn" data-id="{{this.id}}"> DELETE!</button>
+    <button class="delete-burger btn btn-danger btn-sm list-btn" data-id="{{this.id}}"> DELETE!</button>
 </li>
+{{!-- btn-outline-dark btn-sm list-btn --}}

@@ -20,7 +20,8 @@
 ---
 ## **GitHub**
 ### **_GitHub_**: **<https://github.com/ahnlok/eat-burger>**
-### **_Deployed Github Site_**: **<https://ahnlok.github.io/darth-vader-3D-card/>**
+### **_Deployed Github Site_**: **<https://ahnlok.github.io/eat-burger/>**
+### **_Heroku Deployed: <https://stormy-bayou-11683.herokuapp.com/>_**
 
 ---
 
