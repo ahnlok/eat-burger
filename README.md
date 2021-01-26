@@ -7,8 +7,8 @@
 #### **_This program allows user to "Add" or "Pick" burgers from the burger list. If the user is decided to "Eat" the burger, click "Eat" button, then the user's choice of burger will move to "Burgers That You Ate" list. Moreover, if the user is full, the user can simply click "I'm Full" button, then the burger will move back to "Burger List."_**
 ---
 ## **Example Gif:**
-![gif](./burgertest.gif)
-## **Link to the video: <https://drive.google.com/file/d/1yuBS69bdJhjqiTyHpQDurEo94CaSI0wo/view>**
+![gif](./burger.gif)
+## **Link to the video: <https://drive.google.com/file/d/1tCMOUmycAwU-uZnYAj8q0nsdxR3FnOyw/view>**
 
 ---
 
