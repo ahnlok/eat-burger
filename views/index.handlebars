@@ -1,38 +1,57 @@
-<h1 class="title text-center">Eat Da Burgers!</h1>
 
-{{!-- Burger List Available --}}
+{{!-- Burger Available --}}
 <div class="container">
+    <h1 class="title text-center">Eat Da Burgers!</h1>
+    <div class="row justify-content-center text-center mb-2 my-md-3">
+
+        <h2 class="col-12">What Burger Would Like To Eat?</h2>
+        <form class="create-form">
+            <div class="form-group">
+                <label for="newburger" id="color-override">Add Burger:</label>
+                <input type="text" id="newburger" name="burger" placeholder="Type Your Burger Choice:">
+                <button type="submit" class="btn btn-success" id="addburger">Add</button>
+            </div>
+        </form>
+    </div>
+
+    {{!-- Burger List --}}
     <div class="row">
-        <div class="col" id="list-burger">
-        <h2>Available Burgers</h2>
-            {{#each burgers}}
-            {{#unless this.eat}}
-                <div class="available-burger">
-                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST" class="update-button">
-                        {{this.name}}
-                        <button type="submit" class="btn- btn-primary" id="burger-ready">Eat It!</button>
-                    </form>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="lefthead"><strong>Burger List</strong></div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                            {{#unless devoured}}
+                                <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                                <button type="button" class="eatburger btn btn-primary" id="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devoured}}"></button>
+                                <hr>
+                            {{/unless}}
+                        {{/each}}
+                    </ul>
                 </div>
-            {{/unless}}
-            {{/each}}
+            </div>
         </div>
-        {{!-- Burger You Ate List --}}
-        <div class="col" id="list-devoured">
-            <h2 class="burger-title text-center">You Ate: </h2>
-            {{#each burgers}}
-            {{#if this.eat}}
-                <div class="devoured-burgers">
-                    {{this.name}}
-                </div>
-            {{/if}}
-            {{/each}}
+    </div>
+    
+    {{!-- Burger Eaten --}}
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="righthead"><strong>Burger Inside Your Stomach</strong></div>
+            <div class="panel-body">
+                <ul>
+                    {{#each burgers}}
+                        {{#if devoured}}
+                            <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                            <button type="button" class="delete btn btn-danger" id="trashbutton" data-id="{{this.id}}" data-newDevoured="{{devoured}}"></button>
+                            <hr>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-{{!-- Adding a burger --}}
-<form id="add-burger" action="/burgers" class="create-form" method="POST">
-    <div class="form-group col-md-8">
-        <input type="text" id="enter-burger" name="name" class="form-control">
-        <button type="submit" class="btn btn-default" id="submit-burger">Add Da Burger!</button>
-    </div>
-</form>
+
+
+  
